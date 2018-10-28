@@ -1,8 +1,9 @@
 import os
 from os import path
- 
+
 from distutils.core import setup
- 
+
+
 def fullsplit(path, result=None):
     """
     Split a pathname into components (the opposite of os.path.join) in a
@@ -16,9 +17,10 @@ def fullsplit(path, result=None):
     if head == path:
         return result
     return fullsplit(head, [tail] + result)
- 
+
+
 package_dir = "./"
- 
+
 packages = []
 for dirpath, dirnames, filenames in os.walk(package_dir):
     for i, dirname in enumerate(dirnames):
@@ -30,17 +32,17 @@ for dirpath, dirnames, filenames in os.walk(package_dir):
 LONG_DESCRIPTION = open(path.join(path.dirname(__file__), 'README')).read()
 
 REQUIREMENTS = [
-'pyserial'
+    'pyserial'
 ]
-       
+
 setup(
-	name = 'megapi',
-	version = '0.1.8',
-	license = 'MIT',    
-	author = 'ander,Mark',                       
-	author_email = 'ander@makeblock.cc',
-	url = 'http://www.makeblock.com',
-	description = 'python for megapi',
-	long_description=LONG_DESCRIPTION,
-	packages=packages
+    name='megapi',
+    version='0.1.8',
+    license='MIT',
+    author='ander,Mark',
+    author_email='ander@makeblock.cc',
+    url='http://www.makeblock.com',
+    description='python for megapi',
+    long_description=LONG_DESCRIPTION,
+    packages=packages
 )
